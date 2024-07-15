@@ -29,17 +29,18 @@ You can install the required libraries using pip:
 pip install smbus2 gpiozero
 ```
 
-Hardware Setup
+## Hardware Setup
   1.Connect the Water Flow Sensor to the GPIO pin 17 on the Raspberry Pi.
   2.Connect the i2c LCD Display to the i2c pins on the Raspberry Pi.
 
-Installation and Usage
+## Installation and Usage.
+
   1.Clone the Repository:  
 
-  git clone https://github.com/darshith-v/Real-Time-Monitoring-and-Control-of-Water-Flow-Using-Raspberry-Pi.git
+    git clone https://github.com/darshith-v/Real-Time-Monitoring-and-Control-of-Water-Flow-Using-Raspberry-Pi.git
 
-  cd Real-Time-Monitoring-and-Control-of-Water-Flow-Using-Raspberry-Pi
+    cd Real-Time-Monitoring-and-Control-of-Water-Flow-Using-Raspberry-Pi
 
   2.Run the Python Script:
 
-  python water_flow_monitor.py
+    python water_flow_monitor.py
