@@ -1,46 +1,59 @@
 # Real-Time-Monitoring-and-Control-of-Water-Flow-Using-Raspberry-Pi
 
-This project is a real-time water flow monitoring and control system using a Raspberry Pi. The system measures the water flow rate using a water flow sensor and displays the real-time data on an i2c LCD. The control logic is implemented using Python programming.
+## 📘 Project Overview
+This project is a real-time water flow monitoring system built using a Raspberry Pi, a YF-S201 water flow sensor, and a 16x2 I2C LCD display. It measures the flow rate of water in liters per minute (L/min) and displays it on the LCD and console.
 
-## Features
+## ✨ Features
+- Real-time water flow measurement
+- LCD display output
+- Console logging for debugging
+- Interrupt-driven pulse counting
+- I2C communication with LCD
 
-- Real-time water flow rate monitoring
-- Display of flow rate on an i2c LCD screen
-- Python-based implementation for enhanced data processing
+## 🛠️ Hardware Requirements
+- Raspberry Pi (any model with GPIO and I2C support)
+- YF-S201 Water Flow Sensor
+- 16x2 I2C LCD Display (PCF8574 backpack)
+- Jumper wires
+- Breadboard (optional)
 
-## Technologies Used
+## 💻 Software Requirements
+- Raspberry Pi OS
+- C++ Compiler (e.g., g++)
+- wiringPi Library
+- I2C enabled (`raspi-config` → Interfaces → I2C)
 
-- **Programming Languages**: Python
-- **Hardware**: Raspberry Pi, Water Flow Sensor, i2c LCD Display
-- **Software**: Thonny IDE, Node-RED
-- **Libraries/Frameworks**: GPIO Zero, smbus2
+## ⚙️ Setup Instructions
+1. Connect the YF-S201 sensor to GPIO pin 17.
+2. Connect the I2C LCD to the Raspberry Pi's SDA and SCL pins.
+3. Enable I2C using `raspi-config`.
+4. Install the wiringPi library.
+5. Compile the C++ code using:
+   ```bash
+   g++ flow_monitor.cpp -o flow_monitor -lwiringPi
+   ```
+6. Run the program using:
+   ```bash
+   ./flow_monitor
+   ```
 
-## Requirements
+## 🔍 How It Works
+- The YF-S201 sensor generates digital pulses as water flows through it.
+- Each pulse is counted using GPIO interrupts.
+- Every second, the pulse count is converted to flow rate using a known conversion factor (e.g., 450 pulses = 1 liter).
+- The calculated flow rate is displayed on the LCD and printed to the console.
 
-- Raspberry Pi
-- Water Flow Sensor
-- i2c LCD Display
-- Python 3
-- Libraries: `smbus2`, `gpiozero`
+## 🧭 Flowchart Reference
+Refer to the flowchart image for a visual representation of the system's operation:
+1. System Initialization
+2. LCD Initialization
+3. Attach Interrupt to Flow Sensor
+4. Start Loop
+5. Wait 1 Second
+6. Calculate Flow Rate
+7. Display on LCD
+8. Print to Console
+9. Repeat
 
-You can install the required libraries using pip:
-
-```bash
-pip install smbus2 gpiozero
-```
-
-## Hardware Setup
-  1.Connect the Water Flow Sensor to the GPIO pin 17 on the Raspberry Pi.
-  2.Connect the i2c LCD Display to the i2c pins on the Raspberry Pi.
-
-## Installation and Usage.
-
-  1.Clone the Repository:  
-
-    git clone https://github.com/darshith-v/Real-Time-Monitoring-and-Control-of-Water-Flow-Using-Raspberry-Pi.git
-
-    cd Real-Time-Monitoring-and-Control-of-Water-Flow-Using-Raspberry-Pi
-
-  2.Run the Python Script:
-
-    python water_flow_monitor.py
+## 📄 License
+This project is open-source and available under the MIT License.
